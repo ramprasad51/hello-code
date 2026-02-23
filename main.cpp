@@ -1,29 +1,33 @@
-//Finding the volume of a box using class and object in C++.
+//Initialize and display student data through member function
 #include<iostream>
 using namespace std;
-class Box{
+class student
+{
     public:
-    double breadth;
-    double length;
-    double height;
+    int id;//data members
+    string name;
+
+    void insert(int i, string n)//member function to initialize data
+    {
+        id=i;
+        name=n;
+    }
+    void display()//member function to display data
+    {
+        cout<<id<<"  "<<name<<endl;
+    }
 };
 
-int main()
-{//
-    Box Box1;
-    Box Box2;
-    double volume=0.00;
-    Box1.height=5.0;
-    Box1.length=6.0;
-    Box1.breadth=7.0;
-    Box2.height=10.0;
-    Box2.length=12.0;
-    Box2.breadth=13.0;
-    volume=Box1.height*Box1.length*Box1.breadth;
-    cout<<"Volume of Box1: "<<volume<<endl;
-     volume=Box2.height*Box2.length*Box2.breadth; 
-      cout<<"Volume of Box2: "<<volume<<endl;
-      return 0;
-
+int main(void)
+{
+    student s1;
+    student s2;
+    //initializing data through member function
+    s1.insert(51,"Ram");
+    s2.insert(93,"Prasad");
+    //displaying data through member function
+    s1.display();
+    s2.display();
+    return 0;
 
 }
