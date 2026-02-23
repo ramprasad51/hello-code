@@ -1,33 +1,31 @@
-//Initialize and display student data through member function
+//Storing and displaying employee details using member functions in C++
 #include<iostream>
 using namespace std;
-class student
+class employee
 {
     public:
-    int id;//data members
+    int id;
     string name;
-
-    void insert(int i, string n)//member function to initialize data
+    float salary;
+    void insert(int i,string n,float s)
     {
         id=i;
         name=n;
+        salary=s;
     }
-    void display()//member function to display data
+    void display()
     {
-        cout<<id<<"  "<<name<<endl;
+        cout<<id<<"  "<<name<<" "<<salary<<endl;
     }
 };
 
-int main(void)
+int main()
 {
-    student s1;
-    student s2;
-    //initializing data through member function
-    s1.insert(51,"Ram");
-    s2.insert(93,"Prasad");
-    //displaying data through member function
-    s1.display();
-    s2.display();
+    employee e1;
+    employee e2;
+    e1.insert(264,"Shekar",75000);
+    e2.insert(567,"Abhiraj",25000);
+    e1.display();
+    e2.display();
     return 0;
-
 }
