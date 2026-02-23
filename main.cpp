@@ -1,53 +1,51 @@
-//C++ Class for basic geometry calculations 
-#include<iostream>
-#include<cmath>
+//C++ program to add two distances using classes and objects
+#include <iostream>
 using namespace std;
-class GeomtryCalculator
-{
+class Distance{
+    //private members will not be accessible outside the class & only class functions can access them
+     private:
+    int meters;
+    int centimeters;
+
     public:
-    //calculate area of a rectangle
-    static double calculateRectangleArea(double length,double width)
+    void getDistance()  //input function to get distance from user
     {
-        return length*width;
+        cout<<"Enter meters: ";
+        cin>>meters;
+        cout<<"Enter centimeters: ";
+        cin>>centimeters;
     }
-    //calculate perimeter of a rectangle
-    static double calculateRectanglePerimeter(double length,double width)
+    void displayDistance()  //output function to display the distance
     {
-        return 2*(length+width);
+        cout<<"Distance: "<<meters<<"meters"<<centimeters<<"centimeters"<<endl;
     }
-    //calculate area of a circle
-    static double calculateCircleArea(double radius)
+    Distance addDistance(const Distance&d1,const Distance&d2)//function to add two distances and return the result
     {
-        return M_PI*radius*radius;
-    }
-    //calculate circumference of a circle
-    static double calculateCircleCircumference(double radius)
-    {
-        return 2*M_PI*radius;
-    }
-    //calculate area of a triangle using Heron's formula
-    static double calculateTriangleArea(double sideA,double sideB,double sideC)
-    {
-        double s=(sideA+sideB+sideC)/2.0;
-        return sqrt(s*(s-sideA)*(s-sideB)*(s-sideC));
+        Distance result;    //creating an object of Distance class to store the result of addition
+
+        result.meters=d1.meters+d2.meters;   //adding meters of both distances and storing in result object
+        result.centimeters=d1.centimeters+d2.centimeters;   //adding centimeters of both distances and storing in result object
+        if(result.centimeters>=100)    //if centimeters is greater than or equal to 100, convert it to meters
+        {
+            result.meters+=result.centimeters/100;  //converting centimeters to meters and adding to meters
+            result.centimeters=result.centimeters%100;  //storing the remaining centimeters after converting to meters
+        }
+        return result;
+
     }
 };
 
 int main()
 {
-    double length=5.0;
-    double width=3.0;
-    double radius=4.0;
-    double sideA=7.0;
-    double sideB=24.0;
-    double sideC=25.0;
+    Distance distance1,distance2,result;    //creating objects of Distance class to store the distances and result of addition
 
-    GeomtryCalculator G1;//create an object of the class
-//call the functions and display results
-    cout<<"Rectangle Area:"<<G1.calculateRectangleArea(length,width)<<endl;
-    cout<<"Rectangle Perimeter:"<<G1.calculateRectanglePerimeter(length,width)<<endl;
-    cout<<"Circle Area:"<<G1.calculateCircleArea(radius)<<endl;
-    cout<<"Circle Circumference:"<<G1.calculateCircleCircumference(radius)<<endl;
-    cout<<"Triangle Area: "<<G1.calculateTriangleArea(sideA,sideB,sideC)<<endl;
+    cout<<"Enter first distance: "<<endl;
+    distance1.getDistance();
+    cout<<"Enter second distance: "<<endl;
+    distance2.getDistance();
+    result=result.addDistance(distance1,distance2);
+    cout<<"Sum of the distances: "<<endl;
+    result.displayDistance();
     return 0;
+
 }
