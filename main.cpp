@@ -1,39 +1,25 @@
-// C++ program to demonstrate the concept of Single Inheritance
+//C++ program to demonstrate function overloading(for compile-time polymorphism)
 #include<iostream>
 using namespace std;
-// Base class
-class vehicle
+class cal
 {
     public:
-    string brand;
-// Method to display the brand of the vehicle
-    void showbrand()
+    static int add(int a,int b)//2 arguments
     {
-        cout<<"Brand: "<<brand<<endl;
+        return a+b;
     }
-};
-// Derived class inheriting from the base class vehicle(single inheritance)
-class car : public vehicle
-{
-    public:
-    string model;
-// Method to display the model of the car
-    void showmodel()
-    {
-        cout<<"Model: "<<model<<endl;
-    }
-};
 
+    static int add(int a,int b,int c)//3 arguments
+    {
+        return a+b+c;
+    }
+};
+//
 int main()
 {
-    // Creating an object of the derived class car
-    car mycar;
-//Set values for the brand and model of the car
-    mycar.brand="Mahindra";//Inherited from the base class vehicle
-    mycar.model="XUV 700";//Specific to the derived class car
-// Displaying the brand and model of the car using the methods from the base and derived class
-    mycar.showbrand();// Method from the base class vehicle
-    mycar.showmodel();// Method from the derived class car
+    cal c;// object declration
+    cout<<c.add(10,20)<<endl;
+    cout<<c.add(12,20,30)<<endl;
 
-    return 0;    
+    return 0;
 }
