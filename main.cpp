@@ -1,51 +1,39 @@
-//C++ program to add two distances using classes and objects
-#include <iostream>
+// C++ program to demonstrate the concept of Single Inheritance
+#include<iostream>
 using namespace std;
-class Distance{
-    //private members will not be accessible outside the class & only class functions can access them
-     private:
-    int meters;
-    int centimeters;
-
+// Base class
+class vehicle
+{
     public:
-    void getDistance()  //input function to get distance from user
+    string brand;
+// Method to display the brand of the vehicle
+    void showbrand()
     {
-        cout<<"Enter meters: ";
-        cin>>meters;
-        cout<<"Enter centimeters: ";
-        cin>>centimeters;
+        cout<<"Brand: "<<brand<<endl;
     }
-    void displayDistance()  //output function to display the distance
+};
+// Derived class inheriting from the base class vehicle(single inheritance)
+class car : public vehicle
+{
+    public:
+    string model;
+// Method to display the model of the car
+    void showmodel()
     {
-        cout<<"Distance: "<<meters<<"meters"<<centimeters<<"centimeters"<<endl;
-    }
-    Distance addDistance(const Distance&d1,const Distance&d2)//function to add two distances and return the result
-    {
-        Distance result;    //creating an object of Distance class to store the result of addition
-
-        result.meters=d1.meters+d2.meters;   //adding meters of both distances and storing in result object
-        result.centimeters=d1.centimeters+d2.centimeters;   //adding centimeters of both distances and storing in result object
-        if(result.centimeters>=100)    //if centimeters is greater than or equal to 100, convert it to meters
-        {
-            result.meters+=result.centimeters/100;  //converting centimeters to meters and adding to meters
-            result.centimeters=result.centimeters%100;  //storing the remaining centimeters after converting to meters
-        }
-        return result;
-
+        cout<<"Model: "<<model<<endl;
     }
 };
 
 int main()
 {
-    Distance distance1,distance2,result;    //creating objects of Distance class to store the distances and result of addition
+    // Creating an object of the derived class car
+    car mycar;
+//Set values for the brand and model of the car
+    mycar.brand="Mahindra";//Inherited from the base class vehicle
+    mycar.model="XUV 700";//Specific to the derived class car
+// Displaying the brand and model of the car using the methods from the base and derived class
+    mycar.showbrand();// Method from the base class vehicle
+    mycar.showmodel();// Method from the derived class car
 
-    cout<<"Enter first distance: "<<endl;
-    distance1.getDistance();
-    cout<<"Enter second distance: "<<endl;
-    distance2.getDistance();
-    result=result.addDistance(distance1,distance2);
-    cout<<"Sum of the distances: "<<endl;
-    result.displayDistance();
-    return 0;
-
+    return 0;    
 }
