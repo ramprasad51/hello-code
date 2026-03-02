@@ -1,53 +1,42 @@
-//C++ Programm to multiply two complex numbers using class & objects
+// C++ program to demonstrate the use of multiple inheritance
 #include<iostream>
 using namespace std;
-//Complex class 
-class complex{
-    float real;
-    float imag;
-
-public:
-//Function to set the value of real and imaginary part of complex number
-    void setvalue(float r,float i)
+class A  // base class 1
+{
+    protected: 
+    int a;
+    public:
+    void get_a(int n) // function to get value of a
     {
-        real=r;
-        imag=i;
+        a=n;
     }
-//Static function to multiply two complex numbers
-    static complex multiply(const complex &c1,const complex &c2)
+};
+class B // base class 2
+{
+    protected:
+    int b;
+    public:
+    void get_b(int n) // function to get value of b
     {
-        complex result;
-        result.real=c1.real*c2.real - c1.imag*c2.imag;
-        result.imag=c1.real*c2.imag + c1.imag*c2.real;
-        return result;
+        b=n;
     }
-//Function to display the complex number
+};
+class C:public A,public B  // derived class  of A and B (multiple inheritance)
+{
+    public:
     void display()
     {
-        if(imag>=0)
-        cout<<real<<"+"<<imag<<"i"<<endl;
-        else
-        cout<<real<<"-"<<imag<<"i"<<endl;
+        cout<<"The value of a is: "<<a<<endl;
+        cout<<"The value of b is: "<<b<<endl;
+        cout<<"The sum of a & b is: "<<a+b<<endl;
     }
 };
 
 int main()
-{//Creating objects of complex class
-    complex c1,c2,result;
-//Variables to store real and imaginary parts of complex numbers
-    float real1,imag1,real2,imag2;
-
-    cout<<"Enter real & imaginary part of first complex number: ";
-    cin>>real1>>imag1;
-    c1.setvalue(real1,imag1);
-
-    cout<<"Enter real & imaginary part of second complex number: ";
-    cin>>real2>>imag2;
-    c2.setvalue(real2,imag2);
-//Multiplying two complex numbers using static function
-    result = complex::multiply(c1,c2);
-    cout<<"Result of multiplication: ";
-    result.display();
+{
+    C c;            // object of class C
+    c.get_a(10);    // calling function of class A
+    c.get_b(20);    // calling function of class B
+    c.display();    // calling function of class C
     return 0;
-
 }
