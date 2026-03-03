@@ -1,42 +1,37 @@
-// C++ program to demonstrate the use of multiple inheritance
+//Programm to understand function overriding
 #include<iostream>
 using namespace std;
-class A  // base class 1
-{
-    protected: 
-    int a;
+class Animal{ //base class
     public:
-    void get_a(int n) // function to get value of a
+    void sound()
     {
-        a=n;
+        cout<<"These is generic animal sound"<<endl;
     }
 };
-class B // base class 2
-{
-    protected:
-    int b;
-    public:
-    void get_b(int n) // function to get value of b
-    {
-        b=n;
-    }
-};
-class C:public A,public B  // derived class  of A and B (multiple inheritance)
+class Dog:public Animal //derived class 1 inherits from base class
 {
     public:
-    void display()
+    void sound()
     {
-        cout<<"The value of a is: "<<a<<endl;
-        cout<<"The value of b is: "<<b<<endl;
-        cout<<"The sum of a & b is: "<<a+b<<endl;
+        cout<<"The dog barks"<<endl;
     }
 };
-
+class Cat:public Animal //derived class 2
+{
+    public:
+    void sound()
+    {
+        cout<<"Cat meows"<<endl;
+    }
+};
 int main()
 {
-    C c;            // object of class C
-    c.get_a(10);    // calling function of class A
-    c.get_b(20);    // calling function of class B
-    c.display();    // calling function of class C
+    Animal animal;//object of base class
+    Dog dog;//object of derived class 1
+    Cat cat;//object of derived class 2
+    //calling the sound function for each object
+    animal.sound();
+    cat.sound();
+    dog.sound();
     return 0;
 }
