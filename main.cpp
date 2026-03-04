@@ -1,37 +1,48 @@
-//Programm to understand function overriding
+//Hierarchical Inheritance Program
 #include<iostream>
 using namespace std;
-class Animal{ //base class
+class shape{
     public:
-    void sound()
-    {
-        cout<<"These is generic animal sound"<<endl;
+    int a;
+    int b;
+
+    void get_data(int n,int m){
+        a=n;
+        b=m;
     }
 };
-class Dog:public Animal //derived class 1 inherits from base class
+class Rectangle:public shape
 {
     public:
-    void sound()
+    int rect_area()
     {
-        cout<<"The dog barks"<<endl;
+        int result=a*b;
+        return result;
     }
 };
-class Cat:public Animal //derived class 2
+class Triangle:public shape
 {
     public:
-    void sound()
+    int triangle_area()
     {
-        cout<<"Cat meows"<<endl;
+        float result=0.5*a*b;
+        return result;
     }
 };
 int main()
 {
-    Animal animal;//object of base class
-    Dog dog;//object of derived class 1
-    Cat cat;//object of derived class 2
-    //calling the sound function for each object
-    animal.sound();
-    cat.sound();
-    dog.sound();
+    Rectangle r;
+    Triangle t;
+    int length,breadth,height,base;
+    cout<<"Enter Length & breadth of a rectangle: "<<endl;
+    cin>>length>>breadth;
+    r.get_data(length,breadth);
+    int m=r.rect_area();
+    cout<<"Area of rectangle is:  "<<m<<endl;
+    cout<<"Enter  Base & height of Traingle: "<<endl;
+    cin>>base>>height;
+    t.get_data(base,height);
+    float n=t.triangle_area();
+    cout<<"Area of triangle: "<<n<<endl;
     return 0;
 }
