@@ -1,48 +1,36 @@
-//Hierarchical Inheritance Program
+//Programm to understand getter & setter functi(o)n
 #include<iostream>
 using namespace std;
-class shape{
-    public:
-    int a;
-    int b;
 
-    void get_data(int n,int m){
-        a=n;
-        b=m;
+class circle{
+private:
+double  radius;
+public:
+void setRadius(double r){//Acessing radius through setter funtion
+    if(r>0){
+        radius=r;
     }
-};
-class Rectangle:public shape
+        else
+        {
+            cout<<"Please enter a valid radius"<<endl;
+        }
+}
+double getRadius()
 {
-    public:
-    int rect_area()
-    {
-        int result=a*b;
-        return result;
-    }
-};
-class Triangle:public shape
+    return radius;
+}
+double calculateArea()
 {
-    public:
-    int triangle_area()
-    {
-        float result=0.5*a*b;
-        return result;
-    }
+    return 3.14*radius*radius;
+}
 };
+
 int main()
 {
-    Rectangle r;
-    Triangle t;
-    int length,breadth,height,base;
-    cout<<"Enter Length & breadth of a rectangle: "<<endl;
-    cin>>length>>breadth;
-    r.get_data(length,breadth);
-    int m=r.rect_area();
-    cout<<"Area of rectangle is:  "<<m<<endl;
-    cout<<"Enter  Base & height of Traingle: "<<endl;
-    cin>>base>>height;
-    t.get_data(base,height);
-    float n=t.triangle_area();
-    cout<<"Area of triangle: "<<n<<endl;
+    circle c;
+    c.setRadius(6.00);
+    cout<<"Radius of circle:  "<<c.getRadius()<<endl;
+    cout<<"Area of circle:     "<<c.calculateArea()<<endl;
     return 0;
 }
+
