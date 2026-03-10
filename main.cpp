@@ -1,36 +1,32 @@
-//Programm to understand getter & setter functi(o)n
+// C++ program to demonstrate virtual function
 #include<iostream>
 using namespace std;
-
-class circle{
-private:
-double  radius;
-public:
-void setRadius(double r){//Acessing radius through setter funtion
-    if(r>0){
-        radius=r;
+class A   // Base class
+{
+    int x=5;
+    public:
+    virtual void display() // Virtual function
+    {
+        cout<<"Value of x is: "<<x<<endl;
     }
-        else
-        {
-            cout<<"Please enter a valid radius"<<endl;
-        }
-}
-double getRadius()
+};
+
+class B : public A  // Derived class    single inheritance
 {
-    return radius;
-}
-double calculateArea()
-{
-    return 3.14*radius*radius;
-}
+    int y=10;
+    public:
+    void display() // Override the base class function
+    {
+        cout<<"Value of y is: "<<y<<endl;
+    }
 };
 
 int main()
 {
-    circle c;
-    c.setRadius(6.00);
-    cout<<"Radius of circle:  "<<c.getRadius()<<endl;
-    cout<<"Area of circle:     "<<c.calculateArea()<<endl;
+    A *a;  // Base class pointer
+    B b;  // Derived class object
+    a=&b;  // Base class pointer points to derived class object
+    a->display(); // Calls the display function of class B due to virtual function mechanism
+    b.display(); // Calls the display function of class B directly
     return 0;
 }
-
