@@ -1,32 +1,26 @@
-// C++ program to demonstrate virtual function
+//Program to demonstrate the concept of constructor overloading in C++
 #include<iostream>
 using namespace std;
-class A   // Base class
-{
-    int x=5;
+class Number{ 
     public:
-    virtual void display() // Virtual function
+    Number() //Default constructor
     {
-        cout<<"Value of x is: "<<x<<endl;
+        cout<<"Default constructor called"<<endl;
     }
-};
-
-class B : public A  // Derived class    single inheritance
-{
-    int y=10;
-    public:
-    void display() // Override the base class function
+    Number(int a) //Single parameter constructor
     {
-        cout<<"Value of y is: "<<y<<endl;
+        cout<<"Single Parameter constructor:"<<a<<endl;
+    }
+    Number(int a,int b) //Two parameter constructor
+    {
+        cout<<"Two Parameter constructor: "<<a<<"\t&\t"<<b<<endl;
     }
 };
 
 int main()
 {
-    A *a;  // Base class pointer
-    B b;  // Derived class object
-    a=&b;  // Base class pointer points to derived class object
-    a->display(); // Calls the display function of class B due to virtual function mechanism
-    b.display(); // Calls the display function of class B directly
+    Number n1; //Default constructor will be called when object is created
+    Number n2(108); //Single parameter constructor will be called
+    Number n3(24,39); //Two parameter constructor will be called
     return 0;
 }
