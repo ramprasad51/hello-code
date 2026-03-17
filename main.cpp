@@ -1,26 +1,29 @@
-//Program to demonstrate the concept of constructor overloading in C++
+// C++ program to demonstrate protected access specifier
 #include<iostream>
 using namespace std;
-class Number{ 
+
+class Base{
     public:
-    Number() //Default constructor
+    int a=22;
+    protected:
+    int b=44;
+};
+
+class Derived: protected Base{
+    public:
+    void show()
     {
-        cout<<"Default constructor called"<<endl;
-    }
-    Number(int a) //Single parameter constructor
-    {
-        cout<<"Single Parameter constructor:"<<a<<endl;
-    }
-    Number(int a,int b) //Two parameter constructor
-    {
-        cout<<"Two Parameter constructor: "<<a<<"\t&\t"<<b<<endl;
+        cout<<a<<endl; //public member of base class becomes protected member in derived class
+        cout<<b<<endl; //protected member of base class remains protected member in derived class
     }
 };
 
 int main()
 {
-    Number n1; //Default constructor will be called when object is created
-    Number n2(108); //Single parameter constructor will be called
-    Number n3(24,39); //Two parameter constructor will be called
+    Derived obj; 
+    obj.show(); //accessing public and protected members of base class through derived class function
+    // obj.a; // This would cause an error as 'a' is now protected in the derived class which was public in the base class
+
+
     return 0;
 }
