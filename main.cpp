@@ -1,30 +1,24 @@
-// program to understand Constructor overloading
+//By using 'this' keyword resolving the variable shadowing 
 #include<iostream>
 using namespace std;
-
-class Person{
+class person{
     private:
     int age;
     public:
-    Person()//Default constructor
+    void setAge(int age)
     {
-        age=18;
-    }
-    Person(int a)//Single argument constructor
-    {
-        age=a;
+        this->age=age;
     }
     int getAge()
     {
-        return age;
+        return this->age;
     }
 };
 
 int main()
 {
-    Person p1;
-    Person p2(48);
-    cout<<"Person1 age= "<<p1.getAge()<<endl;
-    cout<<"Person2 age= "<<p2.getAge()<<endl;
+    person p;
+    p.setAge(16);
+    cout<<"Person age: "<<p.getAge();
     return 0;
 }
