@@ -1,28 +1,30 @@
-// program to demonstrate the operator overloading 
+// program to understand Constructor overloading
 #include<iostream>
 using namespace std;
-class Test{
+
+class Person{
     private:
-    int num;
+    int age;
     public:
-    Test() // constructor
+    Person()//Default constructor
     {
-        num=8;
+        age=18;
     }
-    void operator ++()
+    Person(int a)//Single argument constructor
     {
-        num+=2;
+        age=a;
     }
-    void print()
+    int getAge()
     {
-        cout<<"The count is: "<<num;
+        return age;
     }
 };
 
 int main()
 {
-    Test tt;// object of test class
-    ++tt;//
-    tt.print();
+    Person p1;
+    Person p2(48);
+    cout<<"Person1 age= "<<p1.getAge()<<endl;
+    cout<<"Person2 age= "<<p2.getAge()<<endl;
     return 0;
 }
