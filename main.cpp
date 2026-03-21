@@ -1,29 +1,28 @@
-// C++ program to demonstrate protected access specifier
+// program to demonstrate the operator overloading 
 #include<iostream>
 using namespace std;
-
-class Base{
+class Test{
+    private:
+    int num;
     public:
-    int a=22;
-    protected:
-    int b=44;
-};
-
-class Derived: protected Base{
-    public:
-    void show()
+    Test() // constructor
     {
-        cout<<a<<endl; //public member of base class becomes protected member in derived class
-        cout<<b<<endl; //protected member of base class remains protected member in derived class
+        num=8;
+    }
+    void operator ++()
+    {
+        num+=2;
+    }
+    void print()
+    {
+        cout<<"The count is: "<<num;
     }
 };
 
 int main()
 {
-    Derived obj; 
-    obj.show(); //accessing public and protected members of base class through derived class function
-    // obj.a; // This would cause an error as 'a' is now protected in the derived class which was public in the base class
-
-
+    Test tt;// object of test class
+    ++tt;//
+    tt.print();
     return 0;
 }
