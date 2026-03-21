@@ -1,24 +1,22 @@
-//By using 'this' keyword resolving the variable shadowing 
-#include<iostream>
+// accessing  members using "this" keyword 
+#include <iostream>
 using namespace std;
-class person{
-    private:
-    int age;
+
+class Test{
     public:
-    void setAge(int age)
-    {
-        this->age=age;
+    string teststring;
+    void setData(string Teststring){
+        this->teststring = Teststring; // using "this" keyword to access the member variable
     }
-    int getAge()
+    void getandPrint(string str)
     {
-        return this->age;
+        this->setData(str); // using "this" keyword to call the member function
+        cout << "The string is: " << this->teststring << endl; 
     }
 };
 
-int main()
-{
-    person p;
-    p.setAge(16);
-    cout<<"Person age: "<<p.getAge();
+int main(){
+    Test t;
+    t.getandPrint("This is a test member access using \"this\" keyword!!!");
     return 0;
 }
