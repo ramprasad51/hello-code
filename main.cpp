@@ -1,22 +1,22 @@
-//Programm to dmonstrate the ENCAPSULATION in C++
+// Error handling in C++ using try, catch and throw
 #include <iostream>
 using namespace std;
-
-class Example{
-    private:
-    int secret; // Private member variable, not accessible outside the class
-    public:
-    void setSecret(int value){// Public member function to set the value of the private member variable
-        secret = value;
+double division(double a, double b){
+    if(b==0){
+        throw "Division by zero condition!";// throwing an exception
     }
-    int getSecret(){// Public member function to get the value of the private member variable
-        return secret;
+    return a/b;
+}
+int main(){
+    int l=1729;
+    int m=0;
+    double n=0;
+    try{// try block to catch the exception
+        n=division(l,m);
+        cout<<n<<endl;
     }
-};
-
-int main() {
-    Example obj;// Create an object of the Example class
-    obj.setSecret(84);// Set the value of the private member variable using the public member function
-    cout << "The secret value is: " << obj.getSecret() << endl;
-    return 0;
+    catch(const char*msg){
+        cerr<<msg<<endl;// catching the exception and printing the error message
+    }
+        return 0;
 }
