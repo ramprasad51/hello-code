@@ -1,16 +1,22 @@
-#Program to remove vowels from a name
-def remove_vowels(name):#function to remove vowels from the name
-    result=""  #to store name without vowels
+#turtle-sprial-art
+import turtle
 
-    for ch in name:#iterate through each character in the name
-        if ch not in "aeiouAEIOU":#check if the character is not a vowel
-            result+=ch
-    return result
+a=0
+b=0
 
-name=input("Enter your name:")
+turtle.bgcolor("black")
+turtle.speed(0)
+turtle.pencolor("green")
+turtle.penup()
+turtle.goto(0,200)
+turtle.pendown()
 
-#function call
-output=remove_vowels(name)
-#Display name without v0wElS
-print("Name after removing vowels:",output)
-    
+while True:
+    turtle.forward(a)
+    turtle.right(b)
+    a+=3
+    b+=1
+    if b==200:
+     break
+turtle.exitonclick()
+
