@@ -1,14 +1,26 @@
-#LENGTH & INDEXING
-Word="Banana!"
-print(len(Word))
-print(Word[0])
-print(Word[1])
-print(Word[2])
-print(Word[3])
-print(Word[4])
-print(Word[5])
-print(Word[6])
+#TRAVERSAL of STRING
 
-'''RELATION BETWEEN LeNGTH & INDEXING
-len()=last index + 1
-last item is always at the index len()-1  '''
+'''Traversing  means processing every element of sequence one by one from start to end
+Traversal is used to access each element of sequence'''
+
+#Example 1: Traversing a string and printing each character by while loop
+from operator import index
+
+
+fruit="Apple"
+ix=0
+while ix<len(fruit):
+    index=fruit[ix]
+    print(index)    
+    ix+=1
+
+#Example 2: Traversing a string and printing each character by for loop
+word="Banana"
+for char in word:
+    print(char)
+
+#Example 3: Traversing a string and performing string concatenation
+prefixes="JKLMNOPQ"
+suffix="ack"
+for letter in prefixes:
+    print(letter + suffix)
