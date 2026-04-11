@@ -1,7 +1,7 @@
-#String comprasion
-str1=input("Enter the first string: ")
-str2=input("Enter the second string: ")
-if str1==str2:                           #Comparing the two strings by using the equality operator (==) if the strings are equal, it will return True, otherwise it will return False.
-    print("The strings are equal.")
+#Checking whether the substring is present in the string or not
+str=input("Enter the string: ")
+sub_str=input("Enter the substring: ")
+if sub_str in str:                     #Using the 'in' operator to check for the presence of the substring in the string
+    print("The substring is present in the string.")
 else:
-    print("The strings are not equal.")
+    print("The substring is not present in the string.")
