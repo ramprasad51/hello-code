@@ -1,6 +1,7 @@
 #String formatting
 
-#Done by using the .format() method and placeholders in the string
+'''Done by using the .format() method and placeholders in the string
+The placeholders{0} mean the first argument passed to the .format() method, {1} means the second argument and so on.'''
 
 #Single placeholder/value
 phrase="His name is {0}!".format("Ram Prasad")
