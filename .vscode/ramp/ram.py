@@ -1,7 +1,12 @@
-#Counting vowels in a string
-str=input("Enter a string: ")
-count=0
-for i in str:                
-    if i in 'aeiouAEIOU':     #using 'in' operator to check vowels present in the string
-        count+=1
-print("The number of vowels in the string is:", count)
+#Removing vowels from a string
+def remove_vowels(phrase):
+    vowels = 'aeiouAEIOU'
+    result = ''
+    for char in phrase:
+        if char not in vowels:    #The 'not in' operator checks if the character is not a vowel
+            result += char      #If the character is not a vowel, it is added to the result string
+    return result
+#Example usage
+phrase=input("Enter a phrase: ")
+result = remove_vowels(phrase)  #Calling the function to remove vowels from the input phrase
+print("Phrase without vowels:", result)
