@@ -1,9 +1,5 @@
-#Count Frequency of characters in a string
+#Count words using string split method
 str=input("Enter a string: ")
-chr=input("Enter a character: ")
-count=0
-
-for i in str:
-    if i==chr:
-        count+=1
-print("The frequency of",chr,"in the string is:",count)
+words=str.split()            #split() method splits the string into a list of words based on whitespace
+print("The words in the string are:", words)
+print("Number of words in the string:", len(words))
