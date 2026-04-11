@@ -1,7 +1,9 @@
-#Replacing substring from string
-'''Since Strings are immutable in Python, we cannot change the original string directly. However, we can create a new string with the desired modifications.
- We can use the replace() method to replace a substring with another substring.'''
-str=input("Enter a string:")
-new_str=str.replace("a","x")
+#Count Frequency of characters in a string
+str=input("Enter a string: ")
+chr=input("Enter a character: ")
+count=0
 
-print("Modified string:",new_str)
+for i in str:
+    if i==chr:
+        count+=1
+print("The frequency of",chr,"in the string is:",count)
