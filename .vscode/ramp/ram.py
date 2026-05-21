@@ -1,18 +1,33 @@
-#EXCEPTION HANDLING
-def DivExp(a,b):
-    assert a>0,"a must be greater than 0"
-    if b==0:
-        raise ZeroDivisionError("Division by zero is not allowed")
-    c=a/b
-    return c
-a=float(input("Enter value for a:"))
-b=float(input("Enter value for b:"))
-try:
-    result=DivExp(a,b)
-    print("Result of a/b:",result)
-except AssertionError as ae:
-    print("AssertionError:",ae)
-except ZeroDivisionError as ze:
-    print("Exception:",ze)
+'''TEXT ANALYSIS in which we calculate:
+1.Number of words
+2.Number of sentences
+3.Longest word
+4.Frequncy of each word'''
+#input a paragraph
+text=input("Enter a paragraph:\n")
+text_lower=text.lower()
+sentences_count=text.count('.')+text.count('?')+text.count('!')
+words=text_lower.split()
+word_freq={}
+#Calculate word frequncy using for l00p
+for word in words:
+    word=word.strip("?!,.:;\"")
+    if word in word_freq:
+        word_freq[word]+=1
+    else:
+        word_freq[word]=1
+#Find looongest word
+longest_word=""
+for w in word_freq:
+    if len(w)>len(longest_word):
+        longest_word=w
+#Report
+print("\n---Text analysis report---")
+print("Number of sentences:",sentences_count)
+print("Number  of words:",len(words))
+print("Longest word:",longest_word)
+print("Word frequncy:\n")
+for word,freq in word_freq.items():
+    print(word,":",freq)
+
     
-   
